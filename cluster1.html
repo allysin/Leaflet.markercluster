@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clustering Test Page</title>
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="screen.css" />
+
+	<link rel="stylesheet" href="/dist/MarkerCluster.css" />
+	<link rel="stylesheet" href="/dist/MarkerCluster.Default.css" />
+	<script src="/dist/leaflet.markercluster-src.js"></script>
+</head>
+<body>
+
+
+	<div id="map"></div>
+	<script type="text/javascript">
+
+		var geoJsonData = {
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "VenueID": "20", "Latitude": "54.906869", "Longitude": "-1.383801", "venue name": "Unknown", "City": "Sunderland", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -1.383801, 54.906869 ] } },
+{ "type": "Feature", "properties": { "VenueID": "18", "Latitude": "51.510063", "Longitude": "-0.1229", "venue name": "Royal Olympic Theatre", "City": "Strand", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1229, 51.510063 ] } },
+{ "type": "Feature", "properties": { "VenueID": "19", "Latitude": "51.510063", "Longitude": "-0.1229", "venue name": "Theatre Royal Adelphi", "City": "Strand", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1229, 51.510063 ] } },
+{ "type": "Feature", "properties": { "VenueID": "6", "Latitude": "53.381129", "Longitude": "-1.470085", "venue name": "Unknown", "City": "Sheffield", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -1.470085, 53.381129 ] } },
+{ "type": "Feature", "properties": { "VenueID": "17", "Latitude": "54.283113", "Longitude": "-0.39975", "venue name": "Unknown", "City": "Scarborough", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.39975, 54.283113 ] } },
+{ "type": "Feature", "properties": { "VenueID": "16", "Latitude": "37.5407246", "Longitude": "-77.4360481", "venue name": "Theatre Royal", "City": "Richmond", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -77.4360481, 37.5407246 ] } },
+{ "type": "Feature", "properties": { "VenueID": "15", "Latitude": "52.954783", "Longitude": "-1.158109", "venue name": "Unknown", "City": "Nottingham", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -1.158109, 52.954783 ] } },
+{ "type": "Feature", "properties": { "VenueID": "14", "Latitude": "54.974", "Longitude": "-1.614", "venue name": "Unknown", "City": "Newcastle", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -1.614, 54.974 ] } },
+{ "type": "Feature", "properties": { "VenueID": "13", "Latitude": "53.479251", "Longitude": "-2.247926", "venue name": "Unknown", "City": "Manchester", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.247926, 53.479251 ] } },
+{ "type": "Feature", "properties": { "VenueID": "28", "Latitude": "53.41154", "Longitude": "-2.990116", "venue name": "New Theatre Royal", "City": "London n.d.", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.990116, 53.41154 ] } },
+{ "type": "Feature", "properties": { "VenueID": "29", "Latitude": "51.5081289", "Longitude": "-0.128005", "venue name": "Convent Garden, Theatre Royal", "City": "London", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.128005, 51.5081289 ] } },
+{ "type": "Feature", "properties": { "VenueID": "30", "Latitude": "51.6852055", "Longitude": "-0.1487441", "venue name": "Surrey Theatre", "City": "London", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1487441, 51.6852055 ] } },
+{ "type": "Feature", "properties": { "VenueID": "31", "Latitude": "51.5081289", "Longitude": "-0.128005", "venue name": "Theatre Royal, Convent Garden", "City": "London", "Country": "England", "VenueComment": "Aldridge's performances in London represented a significant achievement for the actor as he was the first Black actor to appear on the London stage in a major Shakespearean role. Reviews of his performances were mixed as he was judged incapbale of performing Shakespeare because of his race." }, "geometry": { "type": "Point", "coordinates": [ -0.128005, 51.5081289 ] } },
+{ "type": "Feature", "properties": { "VenueID": "12", "Latitude": "53.41154", "Longitude": "-2.990116", "venue name": "Theatre Royal", "City": "Liverpool", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.990116, 53.41154 ] } },
+{ "type": "Feature", "properties": { "VenueID": "32", "Latitude": "53.70042", "Longitude": "-2.19862", "venue name": "Theatre Royal", "City": "Lancaster", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.19862, 53.70042 ] } },
+{ "type": "Feature", "properties": { "VenueID": "10", "Latitude": "54.328006", "Longitude": "-2.74629", "venue name": "New Theatre", "City": "Kendall", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.74629, 54.328006 ] } },
+{ "type": "Feature", "properties": { "VenueID": "11", "Latitude": "54.328006", "Longitude": "-2.74629", "venue name": "New Kendall Theatre", "City": "Kendall", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.74629, 54.328006 ] } },
+{ "type": "Feature", "properties": { "VenueID": "33", "Latitude": "57.4766949", "Longitude": "-4.2314535", "venue name": "Unknown", "City": "Inverness", "Country": "Scotland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -4.2314535, 57.4766949 ] } },
+{ "type": "Feature", "properties": { "VenueID": "8", "Latitude": "53.7456709", "Longitude": "-0.3367413", "venue name": "Theater Royal", "City": "Hull", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.3367413, 53.7456709 ] } },
+{ "type": "Feature", "properties": { "VenueID": "9", "Latitude": "53.7456709", "Longitude": "-0.3367413", "venue name": "Royal Adelphi Theatre", "City": "Hull", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.3367413, 53.7456709 ] } },
+{ "type": "Feature", "properties": { "VenueID": "21", "Latitude": "53.7456709", "Longitude": "-0.3367413", "venue name": "Adelphi Theatre", "City": "Hull", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.3367413, 53.7456709 ] } },
+{ "type": "Feature", "properties": { "VenueID": "22", "Latitude": "53.7456709", "Longitude": "-0.3367413", "venue name": "Clarence Royal Theatre", "City": "Hull", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.3367413, 53.7456709 ] } },
+{ "type": "Feature", "properties": { "VenueID": "24", "Latitude": "53.7456709", "Longitude": "-0.3367413", "venue name": "Royal Clarence Theatre", "City": "Hull", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.3367413, 53.7456709 ] } },
+{ "type": "Feature", "properties": { "VenueID": "34", "Latitude": "53.7456709", "Longitude": "-0.3367413", "venue name": "Royal Pavillion Theatre", "City": "Hull", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.3367413, 53.7456709 ] } },
+{ "type": "Feature", "properties": { "VenueID": "7", "Latitude": "51.6414819", "Longitude": "-0.5218701", "venue name": "Theatre", "City": "Halifax", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.5218701, 51.6414819 ] } },
+{ "type": "Feature", "properties": { "VenueID": "35", "Latitude": "51.8667425", "Longitude": "-2.2486699", "venue name": "Unknown", "City": "Gloucester", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.2486699, 51.8667425 ] } },
+{ "type": "Feature", "properties": { "VenueID": "36", "Latitude": "55.864237", "Longitude": "-4.251806", "venue name": "Unknown", "City": "Glasgow", "Country": "Scotland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -4.251806, 55.864237 ] } },
+{ "type": "Feature", "properties": { "VenueID": "37", "Latitude": "53.2737969", "Longitude": "-9.0517799", "venue name": "New Theatre", "City": "Galway", "Country": "Ireland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -9.0517799, 53.2737969 ] } },
+{ "type": "Feature", "properties": { "VenueID": "4", "Latitude": "55.57", "Longitude": "-3.11", "venue name": "Unknown", "City": "Edinburgh", "Country": "Scotland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -3.11, 55.57 ] } },
+{ "type": "Feature", "properties": { "VenueID": "38", "Latitude": "54.009", "Longitude": "-6.4049", "venue name": "Unknown", "City": "Dundalk", "Country": "Ireland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -6.4049, 54.009 ] } },
+{ "type": "Feature", "properties": { "VenueID": "23", "Latitude": "53.344104", "Longitude": "-6.2674937", "venue name": "Royal Adelphi Theatre", "City": "Dublin", "Country": "Ireland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -6.2674937, 53.344104 ] } },
+{ "type": "Feature", "properties": { "VenueID": "26", "Latitude": "53.344104", "Longitude": "-6.2674937", "venue name": "Theatre Royal", "City": "Dublin", "Country": "Ireland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -6.2674937, 53.344104 ] } },
+{ "type": "Feature", "properties": { "VenueID": "39", "Latitude": "53.344104", "Longitude": "-6.2674937", "venue name": "Unknown", "City": "Dublin", "Country": "Ireland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -6.2674937, 53.344104 ] } },
+{ "type": "Feature", "properties": { "VenueID": "40", "Latitude": "54.32882", "Longitude": "-5.71573", "venue name": "Unknown", "City": "Downpatrick", "Country": "North Ireland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -5.71573, 54.32882 ] } },
+{ "type": "Feature", "properties": { "VenueID": "3", "Latitude": "52.9225301", "Longitude": "-1.4746186", "venue name": "Theatre Royal", "City": "Derby", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -1.4746186, 52.9225301 ] } },
+{ "type": "Feature", "properties": { "VenueID": "41", "Latitude": "51.8978719", "Longitude": "-8.4710874", "venue name": "Unknown", "City": "Cork", "Country": "Ireland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -8.4710874, 51.8978719 ] } },
+{ "type": "Feature", "properties": { "VenueID": "5", "Latitude": "51.5921313", "Longitude": "-0.1162507", "venue name": "Unknown", "City": "Coburg", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -0.1162507, 51.5921313 ] } },
+{ "type": "Feature", "properties": { "VenueID": "42", "Latitude": "51.9", "Longitude": "-2.08333", "venue name": "Unknown", "City": "Cheltenham", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.08333, 51.9 ] } },
+{ "type": "Feature", "properties": { "VenueID": "43", "Latitude": "51.481307", "Longitude": "-3.180498", "venue name": "Unknown", "City": "Cardiff", "Country": "Wales", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -3.180498, 51.481307 ] } },
+{ "type": "Feature", "properties": { "VenueID": "2", "Latitude": "51.455313", "Longitude": "-2.591902", "venue name": "Unknown", "City": "Bristol", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.591902, 51.455313 ] } },
+{ "type": "Feature", "properties": { "VenueID": "1", "Latitude": "54.5974433", "Longitude": "-5.9340683", "venue name": "Theatre Belfast", "City": "Belfast", "Country": "North Ireland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -5.9340683, 54.5974433 ] } },
+{ "type": "Feature", "properties": { "VenueID": "25", "Latitude": "51.3821", "Longitude": "-2.3629", "venue name": "Theatre Royal", "City": "Bath", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.3629, 51.3821 ] } },
+{ "type": "Feature", "properties": { "VenueID": "44", "Latitude": "51.3821", "Longitude": "-2.3629", "venue name": "Unknown", "City": "Bath", "Country": "England", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.3629, 51.3821 ] } },
+{ "type": "Feature", "properties": { "VenueID": "27", "Latitude": "57.147493", "Longitude": "-2.095392", "venue name": "Unknown", "City": "Aberdeen", "Country": "Scotland", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ -2.095392, 57.147493 ] } },
+{ "type": "Feature", "properties": { "VenueID": "", "Latitude": "48.8566667", "Longitude": "2.3509871", "venue name": "Unknown", "City": "Paris", "Country": "France", "VenueComment": "" }, "geometry": { "type": "Point", "coordinates": [ 2.3509871, 48.8566667 ] } }
+]
+};
+		var map;
+		
+var mapquestOSM = new L.TileLayer("http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png", {
+			maxZoom: 17,
+			subdomains: ["otile1", "otile2", "otile3", "otile4"],
+			attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.'
+		});
+
+		var mapquestOAM = new L.TileLayer("http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg", {
+			maxZoom: 17,
+			subdomains: ["oatile1", "oatile2", "oatile3", "oatile4"],
+			attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.'
+		});
+
+
+		var mbTiles = new L.tileLayer('mbtiles_serve.php?db=image.mbtiles&z={z}&x={x}&y={y}', {
+		    tms: true,
+		    opacity: 0.7
+		});
+
+		map = new L.Map("map",{
+			zoom: 3,
+            center: [36.315125, -88.769531],
+			layers: [mapquestOSM, mbTiles]
+		});
+
+		var baseLayers = {
+			"MapQuest Streets": mapquestOSM,
+			"MapQuest Aerial": mapquestOAM
+		};
+		var overlays = {
+			"Local MBTiles File": mbTiles,
+		};
+
+		layersControl = new L.Control.Layers(baseLayers, overlays, {
+			collapsed: false
+		});
+
+
+
+
+		// var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/997/256/{z}/{x}/{y}.png', {
+// 			maxZoom: 18,
+// 			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+// 			key: 'BC9A493B41014CAABB98F0471D759707'
+// 		});
+// 
+// 		var map = L.map('map')
+// 				.addLayer(cloudmade);
+// 
+		var markers = L.markerClusterGroup();
+
+		var geoJsonLayer = L.geoJson(geoJsonData, {
+			onEachFeature: function (feature, layer) {
+				layer.bindPopup(feature.properties.City);
+			}
+		});
+		markers.addLayer(geoJsonLayer);
+
+		map.addLayer(markers);
+		map.fitBounds(markers.getBounds());
+	</script>
+</body>
+</html>
